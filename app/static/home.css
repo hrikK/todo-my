@@ -1,0 +1,121 @@
+body{
+    padding: 0;
+    background: white;
+}
+header {
+    position: fixed;
+    margin: 10px;
+    width: 99%;
+    z-index: 100;
+}
+header div {
+    position: absolute;
+    display: flex;
+    right: 15px;
+}
+
+.home {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: url(img/banner.jpg) no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+.home .body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+}
+.home .text {
+    max-width: 400px;
+    position: relative;
+    z-index: 1;
+    padding-left: 9em;
+}
+.home h1 {
+    color: white;
+    font-size: 5.5em;
+    line-height: 1.3em;
+
+}
+
+.btn {
+    color: white;
+    font-size: 1.1em;
+    transition: .4s;
+}
+.btn:hover {
+    letter-spacing: 3px;
+    transition: .4s;
+}
+
+.body {
+    padding-top: 3em;
+}
+.body h2 {
+    font-weight: 400;
+    text-align: center;
+    padding: 8px 1.8em;
+    width: auto;
+    margin: 0 auto;
+    color: white;
+    border-radius: 12px;
+    background: rgb(108, 99, 255);
+}
+.body .content {
+    display: flex;
+    flex-direction: column;
+}
+.body .content .main-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    padding: 3em 10em;
+}
+.body .content .main-box .text-box {
+    max-width: 60%;
+    color: rgb(75, 82, 91);
+}
+.body .content .main-box .text-box p {
+    letter-spacing: 1px;
+    line-height: 1.7em;
+}   
+.body .content .main-box h3 {
+    font-weight: 400;
+}
+.body .content .main-box .img-box {
+    width: 350px;
+}
+.body .content .main-box .img-box img {
+    width: 100%;
+}
+.body .content .main-box.bottom {
+    flex-direction: row-reverse;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+  
+a:hover, a:focus {
+    text-decoration: none;
+}
+footer {
+    background: rgb(108, 99, 255);
+}
+footer .row {
+    justify-content: space-around;
+}
+footer .container {
+    max-width: 960px;
+}

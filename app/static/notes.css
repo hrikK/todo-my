@@ -1,0 +1,61 @@
+h2 {
+    padding: .35em 1.3em;
+    line-height: 1;
+    max-width: 400px;
+    text-align: center;
+    border-radius: .25rem;
+    margin: 0 auto;
+}
+h4 {
+    margin-bottom: 25px; 
+    background-color: rgb(206, 212, 218); 
+    padding: 10px; 
+    text-align: center;
+    margin-left: -8px;
+}
+.badge {
+    padding: 0.7em .65em;
+}
+.container {
+    width: 50%;
+    max-width: 1320px;
+}
+.col {
+    padding: 0 1.5em;
+}
+.col-right {
+    position: relative;
+}
+.col-right span {
+    color: rgb(95, 99, 104);
+    text-decoration: line-through;
+    font-style: italic;
+}
+.col-right:before {
+    content: " ";
+    color: rgb(206, 212, 218);
+    height: 40px;
+    width: 2px;
+    display: block;
+    position: absolute;
+    top: 0;
+}
+img {
+    height: 16px;
+    width: 16px;
+}
+.col .delete.form-check-input {
+    width: 1.2em;
+    height: 1.2em;
+    margin: 0 1.2em 0 0;
+    background: url(icons/delete.png) no-repeat;
+    background-size: cover;
+    border: none;
+    float: right;
+}
+
+.col-right .checked.form-check-input {
+    background: url(icons/checked_checkbox.png) no-repeat;
+    background-size: cover;
+    border: none;
+}

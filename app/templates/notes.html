@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+
+{% block link %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='notes.css')}}">
+{% endblock %}
+
+{% block title %}
+    ToDo-Your Notes
+{% endblock %}
+
+{% block main %}
+    <h2 class="bg-light text-dark">Your To-Do Notes</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Incomplete Items</h4>
+                {% if incomplete_items.first() != None %}
+                    {% for in_todo in incomplete_items %}
+                        <p>
+                            <form method="POST">
+                                <button class="form-check-input" type="submit" name="com_mark" value="{{in_todo.id}}" id="flexCheckDefault" data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as completed"></button>
+                                {{ in_todo.text }}
+                                <button class="delete form-check-input" type="submit" name="delete_note" value="{{in_todo.id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete note forever"></button>
+                            </form>
+                        </p>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <p>
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        You have no incomplete todo.
+                    </p>
+                {% endif %}
+                <form method="POST">
+                    <div style="display: flex;">
+                        {{ form.hidden_tag() }}
+            
+                        {{ form.text(class="form-control", placeholder="Add a new todo", autocomplete="off") }}
+                        {{ form.add_todo(class="btn btn-secondary") }}
+                    </div>
+                </form>
+            </div>
+            <div class="col col-right">
+                <h4>Completed Items</h4>
+                {% if completed_items.first() != None %}
+                    {% for com_todo in completed_items %}
+                            <form method="POST">
+                                <button class="form-check-input checked" type="submit" name="incom_mark" value="{{com_todo.id}}" id="flexCheckCheckedDisabled"  data-bs-toggle="tooltip" data-bs-placement="top" title="Mark as incomplete"></button>
+                                <span>{{ com_todo.text }}</span>
+                                <button class="delete form-check-input" type="submit" name="delete_note" value="{{com_todo.id}}" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete note forever"></button>
+                            </form>
+                        <hr>
+                    {% endfor %}
+                {% else %}
+                    <p>
+                        <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios1" value="option1" checked>
+                        You have no completed todo.
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

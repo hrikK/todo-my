@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    ToDo-SignIn
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="title">Sign-In</div>
+        <div class="content">
+            <form method="POST">
+                {{ form.hidden_tag() }}
+
+                <div class="user-details">
+                    <div class="input-box">
+                        {{ form.username.label(class="details") }}
+                        {% if form.username.errors %}
+                            {{ form.username(placeholder="Enter your username", class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error_msg in form.username.errors %}
+                                    <span> {{error_msg}} </span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.username(placeholder="Enter your username", class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="input-box">
+                        {{ form.email_address.label(class="details") }}
+                        {% if form.email_address.errors %}
+                            {{ form.email_address(placeholder="Enter your email", class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error_msg in form.email_address.errors %}
+                                    <span> {{error_msg}} </span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.email_address(placeholder="Enter your email", class="form-control") }}
+                        {% endif %}
+                    </div>
+                    <div class="input-box">
+                        {{ form.password.label(class="details") }}
+                        {% if form.password.errors %}
+                            {{ form.password(placeholder="Enter your password", class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error_msg in form.password.errors %}
+                                    <span> {{error_msg}} </span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.password(placeholder="Enter your password", class="form-control") }}
+                        {% endif %}
+                    </div>
+                <div class="button">
+                    {{ form.submit() }}
+                </div>
+            </form>
+            <p>Don't have an account? <a href="{{url_for('sign_up_page')}}">Join Now</a></p>
+        </div>
+    </div>
+{% endblock %}
+
+{% block css %}
+    form .user-details .input-box{
+        width: 100%;
+    }
+    .content form .user-details {
+        display: block;
+    }
+{% endblock %}
